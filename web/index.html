@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Online Appointment System</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/themes/south-street/jquery-ui.css"> 
+        <script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script> 
+        <script type="text/javascript">
+         jQuery.browser = {};
+         (function () {
+         jQuery.browser.msie = false;
+         jQuery.browser.version = 0;
+         if (navigator.userAgent.match(/MSIE ([0-9]+)\./)) {
+            jQuery.browser.msie = true;
+            jQuery.browser.version = RegExp.$1;
+        }
+        })();
+       </script>
+       <script src="js/jquery.validate.min.js" type="text/javascript"></script>
+       <script src="js/additional-methods.min.js" type="text/javascript"></script> 
+       <script src="js/jquery.ui.datepicker.validation.min.js" type="text/javascript"></script> 
+       <link href="appointment.css" rel="stylesheet" type="text/css"/>
+       <script src="js/appointment.js" type="text/javascript"></script>
+    </head>
+    
+    <body>
+        <h1>Online Appointment System</h1>
+        
+        <!--Display's submission message-->
+        <div id="submissionDiv" style="display:none">
+            <p id="submissionMessage">Form  successfully submitted!Appointment has been scheduled.</p>
+        </div>
+        
+        <!--Display's validation error message--> 
+        <div id="errMessage"></div><br><br>
+        
+        <!--Form for adding appointments-->
+        <div id="formdiv" style="display:none">
+          <form id="formData" method="POST" action="">
+            <fieldset>
+             <legend>New Appointment</legend>
+             <button id="addBtn" type="submit">Add</button>
+             <button id="cancelBtn" type="button">Cancel</button><br><br>
+           
+             <label for="date">Date</label>
+             <input id="date"  name="date" size="19" type="text"><br><br>
+             
+             <label for="time">Time</label>
+             <input id="time" name="time" size="19" type="time"><br><br>
+             
+             <label for="descStr">Description</label>
+             <input id="descStr" name="descStr" size="19" type="text"><br><br>
+            </fieldset>
+          </form> 
+        </div>
+        
+        <!--New, Search & Clear button--> 
+        <div>
+            <button id="newBtn">New</button><br><br>
+        
+            <input id="searchInp" size="18" type="text" name="searchInp">
+            <button id="searchBtn" type="submit">Search</button> 
+            <button id="clearBtn" type="reset">Clear</button>
+            <br><br>
+        </div>
+        
+        <!--Appointment error message-->
+        <div id="errAppointment" style="display:none">
+            <p>No appointment has been schedule from this name</p>
+        </div>
+        
+        <!--Table to display search data-->
+        <div id="tableDiv" style="display:none">
+            <table id="tableData">
+                <thead>
+                    <tr>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody id="tableBody">
+                </tbody> 
+            </table>
+        </div>
+    </body>
+</html>
